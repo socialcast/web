@@ -83,7 +83,7 @@ module LdapAuthenticationHelpers
     ldap      = Net::LDAP.new
     ldap.host = Squash::Configuration.authentication.ldap.host
     ldap.port = Squash::Configuration.authentication.ldap.port
-    ldap.encryption(:start_tls) if Squash::Configuration.authentication.ldap.ssl
+    ldap.encryption(:method => :simple_tls, :ssl_version => :SSLv3) if Squash::Configuration.authentication.ldap.ssl
     ldap
   end
 
