@@ -13,5 +13,5 @@
 #    limitations under the License.
 
 conditionally('authentication.strategy', 'ldap') do
-  gem 'socialcast-net-ldap', '0.1.7', github: 'socialcast/ruby-net-ldap', branch: 'add-ssl-version-option', require: 'net/ldap'
+  gem 'socialcast-net-ldap', '0.1.8', github: 'socialcast/ruby-net-ldap', require: 'net/ldap'
 end

@@ -27,6 +27,12 @@ GIT
   specs:
     git (1.2.6)
 
+GIT
+  remote: git://github.com/socialcast/ruby-net-ldap.git
+  revision: 7599a6025b22cc91ee7bfd83483f84e064b9d8ca
+  specs:
+    socialcast-net-ldap (0.1.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -290,6 +296,7 @@ DEPENDENCIES
   safe_yaml
   sass-rails
   slugalicious
+  socialcast-net-ldap (= 0.1.8)!
   sql_origin
   squash_ios_symbolicator
   squash_java

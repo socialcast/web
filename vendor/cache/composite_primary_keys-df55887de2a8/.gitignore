@@ -1,0 +1,14 @@
+log
+nbproject
+tmp
+debug.log
+local/*.rb
+pkg
+db
+
+/doc
+/.idea
+*.swo
+*.swp
+
+test/connections/databases.yml
