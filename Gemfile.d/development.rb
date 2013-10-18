@@ -18,6 +18,9 @@ group :development do
 
   gem 'json-schema', '< 2.0.0' # version 2.0 breaks fdoc
   gem 'fdoc'
+  gem 'capistrano', '3.0.0'
+  gem 'capistrano-rails', '1.0.0'
+  gem 'capistrano-bundler', '1.0.0'
 end
 
 gem 'sql_origin', groups: [:development, :test]

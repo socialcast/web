@@ -65,6 +65,14 @@ GEM
     atomic (1.1.14-java)
     boolean (1.0.1)
     builder (3.1.4)
+    capistrano (3.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 0.0.23)
+    capistrano-bundler (1.0.0)
+      capistrano (>= 3.0.0.pre)
+    capistrano-rails (1.0.0)
+      capistrano
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -126,6 +134,9 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.1)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.7.0)
     pg (0.17.0)
     plist (3.1.0)
     polyglot (0.3.3)
@@ -204,7 +215,13 @@ GEM
       json
     squash_uploader (1.0.1)
       json
+    sshkit (1.1.0)
+      net-scp
+      net-ssh
+      term-ansicolor
     stringex (2.1.0)
+    term-ansicolor (1.2.2)
+      tins (~> 0.8)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -218,6 +235,7 @@ GEM
       atomic
     tilt (1.4.1)
     timeliness (0.3.7)
+    tins (0.12.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -241,6 +259,9 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-jdbcpostgresql-adapter
+  capistrano (= 3.0.0)
+  capistrano-bundler (= 1.0.0)
+  capistrano-rails (= 1.0.0)
   coffee-rails
   composite_primary_keys!
   configoro (>= 1.2.4)
