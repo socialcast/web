@@ -1,8 +1,6 @@
 set :application, 'square'
 set :repo_url, 'git@github.com:socialcast/web.git'
 
-ask :branch, 'master'
-
 set :deploy_to, '/var/www/square'
 set :scm, :git
 
