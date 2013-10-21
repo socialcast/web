@@ -1,4 +1,5 @@
 set :stage, :production
+set :rails_env, :production
 
 # Simple Role Syntax
 # ==================
@@ -16,5 +17,3 @@ role :db,  %w{deploy@squash.app.socialcast.com}
 # something that quacks like a has can be used to set
 # extended properties on the server.
 server 'squash.app.socialcast.com', user: 'deploy', roles: %w{web app db}
-
-fetch(:default_env).merge!(rails_env: :production)
