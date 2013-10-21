@@ -19,8 +19,11 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
+      if test "ps -p `cat #{File.join(shared_path, 'tmp', 'pids', 'unicorn.pid'}` > /dev/null"
+        execute :kill, "-s USR2 `cat #{File.join(shared_path, 'tmp', 'pids', 'unicorn.pid'}`"
+      else
+        execute :unicorn_rails, "--config-file /etc/unicorn.rb --env production --daemonize"
+      end
     end
   end
 
