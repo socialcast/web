@@ -19,8 +19,9 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      if test "ps -p `cat #{File.join(shared_path, 'tmp', 'pids', 'unicorn.pid'}` > /dev/null"
-        execute :kill, "-s USR2 `cat #{File.join(shared_path, 'tmp', 'pids', 'unicorn.pid'}`"
+      unicorn_pid = capture("cat #{File.join(shared_path, 'tmp', 'pids', 'unicorn.pid')}")
+      if test "ps -p #{unicorn_pid} > /dev/null"
+        execute :kill, "-s USR2 #{unicorn_pid}"
       else
         execute :unicorn_rails, "--config-file /etc/unicorn.rb --env production --daemonize"
       end
