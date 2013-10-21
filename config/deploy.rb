@@ -1,7 +1,7 @@
-set :application, 'square'
+set :application, 'squash'
 set :repo_url, 'git@github.com:socialcast/web.git'
 
-set :deploy_to, '/var/www/square'
+set :deploy_to, '/var/www/squash'
 set :scm, :git
 
 # set :format, :pretty
