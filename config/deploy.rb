@@ -1,20 +1,20 @@
-set :application, 'my app name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'square'
+set :repo_url, 'git@github.com:socialcast/web.git'
 
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+ask :branch, 'master'
 
-# set :deploy_to, '/var/www/my_app'
-# set :scm, :git
+set :deploy_to, '/var/www/square'
+set :scm, :git
 
 # set :format, :pretty
 # set :log_level, :debug
 # set :pty, true
 
-# set :linked_files, %w{config/database.yml}
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_files, %w{config/database.yml config/environments/common/authentication.yml config/environments/common/mailer.yml config/environments/production/dogfood.yml config/environments/production/javascript_dogfood.yml config/environments/production/mailer.yml config/initializers/secret_token.rb}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
-# set :keep_releases, 5
+set :keep_releases, 5
 
 namespace :deploy do
 
@@ -29,9 +29,9 @@ namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+      within release_path do
+        execute :rake, 'cache:clear'
+      end
     end
   end
 
