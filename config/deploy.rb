@@ -8,7 +8,18 @@ set :scm, :git
 # set :log_level, :debug
 # set :pty, true
 
-set :linked_files, %w{config/database.yml config/environments/common/authentication.yml config/environments/common/mailer.yml config/environments/production/dogfood.yml config/environments/production/javascript_dogfood.yml config/environments/production/mailer.yml config/initializers/secret_token.rb}
+set :linked_files, %w{
+  config/database.yml
+  config/environments/common/authentication.yml
+  config/environments/common/mailer.yml
+  config/environments/common/jira.yml
+  config/environments/common/jiracert.pem
+  config/environments/common/jirakey.pem
+  config/environments/production/dogfood.yml
+  config/environments/production/javascript_dogfood.yml
+  config/environments/production/mailer.yml
+  config/initializers/secret_token.rb
+}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
