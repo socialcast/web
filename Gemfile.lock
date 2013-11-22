@@ -115,6 +115,10 @@ GEM
       rubyntlm (~> 0.3.2)
     i18n (0.6.5)
     jdbc-postgres (9.2.1002.1)
+    jira-ruby (0.1.2)
+      activesupport
+      oauth
+      railties
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -143,6 +147,7 @@ GEM
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
+    oauth (0.4.7)
     pg (0.17.0)
     plist (3.1.0)
     polyglot (0.3.3)
@@ -280,6 +285,7 @@ DEPENDENCIES
   font-awesome-rails
   git!
   has_metadata_column!
+  jira-ruby
   jquery-rails
   json
   json-schema (< 2.0.0)
