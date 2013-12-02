@@ -8,6 +8,7 @@ set :rails_env, :production
 # unless any hosts have the primary property set.
 role :app, %w{deploy@squash.app.socialcast.com}
 role :web, %w{deploy@squash.app.socialcast.com}
+role :worker, %w{deploy@squash.app.socialcast.com}
 role :db,  %w{deploy@squash.app.socialcast.com}
 
 # Extended Server Syntax
@@ -16,4 +17,4 @@ role :db,  %w{deploy@squash.app.socialcast.com}
 # definition into the server list. The second argument
 # something that quacks like a has can be used to set
 # extended properties on the server.
-server 'squash.app.socialcast.com', user: 'deploy', roles: %w{web app db}
+server 'squash.app.socialcast.com', user: 'deploy', roles: %w{web app worker db}

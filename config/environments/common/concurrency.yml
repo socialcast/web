@@ -1,5 +1,5 @@
 ---
-background_runner: Multithread
+background_runner: Resque
 
 multithread:
   priority_threshold: 50
