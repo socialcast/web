@@ -37,6 +37,12 @@ namespace :deploy do
         execute :unicorn_rails, "--config-file /etc/unicorn.rb --env production --daemonize"
       end
     end
+    on roles(:worker), in: :sequence, wait: 5 do
+      resque_pool_pid = capture("cat #{File.join(shared_path, 'tmp', 'pids', 'resque-pool.pid')}")
+      if test "ps -p #{resque_pool_pid} > /dev/null"
+        execute :kill, "-s QUIT #{resque_pool_pid}"
+      end
+    end
   end
 
   after :finishing, 'deploy:cleanup'
