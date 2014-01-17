@@ -21,6 +21,7 @@ group :development do
   gem 'capistrano', '3.0.0'
   gem 'capistrano-rails', '1.0.0'
   gem 'capistrano-bundler', '1.0.0'
+  gem 'passenger', '4.0.29'
 end
 
 gem 'sql_origin', groups: [:development, :test]

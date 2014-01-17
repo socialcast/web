@@ -16,5 +16,3 @@ gem 'rails', '>= 4.0.0'
 
 gem 'configoro', '>= 1.2.4'
 gem 'rack-cors', require: 'rack/cors'
-
-gem 'unicorn', '4.7.0'
