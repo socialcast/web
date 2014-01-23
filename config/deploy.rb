@@ -26,16 +26,12 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 set :keep_releases, 5
 
 namespace :deploy do
+  after :publishing, :restart
 
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      unicorn_pid = capture("cat #{File.join(shared_path, 'tmp', 'pids', 'unicorn.pid')}")
-      if test "ps -p #{unicorn_pid} > /dev/null"
-        execute :kill, "-s USR2 #{unicorn_pid}"
-      else
-        execute :unicorn_rails, "--config-file /etc/unicorn.rb --env production --daemonize"
-      end
+      execute :touch, File.join(release_path, 'tmp', 'restart.txt')
     end
     on roles(:worker), in: :sequence, wait: 5 do
       resque_pool_pid = capture("cat #{File.join(shared_path, 'tmp', 'pids', 'resque-pool.pid')}")
