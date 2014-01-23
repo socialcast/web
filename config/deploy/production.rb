@@ -6,10 +6,11 @@ set :rails_env, :production
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-role :app, %w{deploy@squash.app.socialcast.com}
-role :web, %w{deploy@squash.app.socialcast.com}
-role :worker, %w{deploy@squash.app.socialcast.com}
-role :db,  %w{deploy@squash.app.socialcast.com}
+role :app, %w{deployer@squash.app.socialcast.com}
+role :web, %w{deployer@squash.app.socialcast.com}
+role :worker, %w{deployer@squash.app.socialcast.com}
+role :db,  %w{deployer@squash.app.socialcast.com}
+role :queue,  %w{deployer@squash.app.socialcast.com}
 
 # Extended Server Syntax
 # ======================
@@ -17,4 +18,4 @@ role :db,  %w{deploy@squash.app.socialcast.com}
 # definition into the server list. The second argument
 # something that quacks like a has can be used to set
 # extended properties on the server.
-server 'squash.app.socialcast.com', user: 'deploy', roles: %w{web app worker db}
+server 'squash.app.socialcast.com', user: 'deploy', roles: %w{web app worker db queue}
