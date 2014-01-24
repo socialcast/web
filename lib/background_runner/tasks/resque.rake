@@ -32,7 +32,7 @@ namespace :resque do
   task pool: %w[resque:setup resque:pool:setup] do
     require 'resque/pool'
 
-    rails_root = ENV['RAILS_ROOT'] || File.dirname(__FILE__) + '/../..'
+    rails_root = Rails.root.to_s
     rails_env  = ENV['RAILS_ENV'] || 'development'
 
     common_file = File.join(rails_root.to_s, 'config', 'environments', 'common', 'concurrency.yml')
