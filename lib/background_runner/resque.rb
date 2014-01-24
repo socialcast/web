@@ -19,7 +19,7 @@ module BackgroundRunner
 
   module Resque
     def self.setup
-      rails_root = ENV['RAILS_ROOT'] || File.dirname(__FILE__) + '/../..'
+      rails_root = Rails.root
       rails_env  = ENV['RAILS_ENV'] || 'development'
 
       common_file = File.join(rails_root.to_s, 'config', 'environments', 'common', 'concurrency.yml')
