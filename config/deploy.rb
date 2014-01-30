@@ -34,15 +34,7 @@ namespace :deploy do
       execute :touch, File.join(release_path, 'tmp', 'restart.txt')
     end
     on roles(:worker), in: :sequence, wait: 5 do
-      resque_pool_pid_file = File.join(shared_path, 'tmp', 'pids', 'resque-pool.pid')
-      if test("ls #{resque_pool_pid_file}")
-        resque_pool_pid = capture("cat #{resque_pool_pid_file}")
-        if test "ps -p #{resque_pool_pid} > /dev/null"
-          sudo :kill, "-s QUIT #{resque_pool_pid}"
-        end
-      else
-        sudo "/etc/init.d/squash_resque", "start"
-      end
+      sudo "/usr/bin/monit", "restart resque-pool"
     end
   end
 
